@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/tv_title"
@@ -50,7 +50,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_number_of_people"
+        android:id="@+id/spinner_number_of_people"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -58,13 +58,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_total">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tie_num_people"
+        <Spinner
+            android:id="@+id/spinner_num_people"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Digite o total de Pessoas "
             android:inputType="number"
-            android:maxLength="2"
             app:layout_constraintTop_toBottomOf="@+id/tv_subtitle" />
 
 
@@ -74,31 +72,31 @@
         android:id="@+id/rg_percentage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:gravity="center"
+        android:layout_marginStart="16dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/til_number_of_people"
-        app:layout_constraintStart_toStartOf="@+id/til_number_of_people"
-        app:layout_constraintTop_toBottomOf="@+id/til_number_of_people">
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_number_of_people"
+        app:layout_constraintStart_toStartOf="@+id/spinner_number_of_people"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_number_of_people">
 
         <RadioButton
             android:id="@+id/rb_option1"
+            android:text="10%"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10%" />
+            android:layout_height="wrap_content"/>
 
         <RadioButton
             android:id="@+id/rb_option2"
+            android:text="15%"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="15%" />
+            android:layout_height="wrap_content"/>
 
         <RadioButton
             android:id="@+id/rb_option3"
+            android:text="20%"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="20%" />
+            android:layout_height="wrap_content"/>
 
     </RadioGroup>
 
@@ -110,40 +108,38 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="4dp"
         android:text="limpar"
+        app:layout_constraintStart_toStartOf="@+id/spinner_number_of_people"
         app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
-        app:layout_constraintStart_toStartOf="@+id/til_number_of_people"
         app:layout_constraintTop_toBottomOf="@+id/rg_percentage" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/vertical_guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
     <Button
         android:id="@+id/btn_done"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:text="calcular"
-        app:layout_constraintEnd_toEndOf="@+id/til_number_of_people"
+        android:layout_marginStart="4dp"
         app:layout_constraintStart_toEndOf="@id/vertical_guideline"
+        app:layout_constraintEnd_toEndOf="@+id/spinner_number_of_people"
         app:layout_constraintTop_toBottomOf="@+id/rg_percentage" />
-
 
     <TextView
         android:id="@+id/tv_result"
+        android:layout_marginTop="16dp"
+        tools:text="57.5"
+        android:textSize="24sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="24dp"
-        android:maxLength="24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_clean"
-        tools:text="57.5" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_clean" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
